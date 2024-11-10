@@ -16,7 +16,7 @@ Habilidades
 /
 / CREEPER
 /
-/ Um monstro muito sagaz que explode na sua cara.
+/ Um monstro muito sagaz qe explode na sua cara.
 /
 / Som: Tssssssss
 /
@@ -82,22 +82,71 @@ local function getProgressBar(attributes)
     end
     return result
 end
--- Cartão
-print("======================================================")
-print("| ")
-print("| ".. monster_name)
-print("| ".. description)
-print("| ")
-print("| Emoji Favorito: ".. emoji)
-print("| Som: ".. sound)
-print("| Horário: ".. favorite_time)
-print("| Drop: ".. drop_item)
-print("| ")
-print("| Atributos")
-print("|    Ataque:       ".. getProgressBar(atack_attribute))
-print("|    Defesa:       ".. getProgressBar(defense_attribute))
-print("|    Vitalidade:   ".. getProgressBar(life_attribute))
-print("|    Velocidade:   ".. getProgressBar(speed_attribute))
-print("|    Inteligência: ".. getProgressBar(inteligence_attibute))
-print("| ")
-print("======================================================")
+
+-- Função para mostrar os Atributos
+local function showAttributes(revelAttributes)
+    -- Revela o Cartão do Creeper de acordo com a escolha do usuário.
+    if revelAttributes == "Creeper" then
+        print("======================================================")
+        print("| ")
+        print("| ".. monster_name)
+        print("| ".. description)
+        print("| ")
+        print("| Emoji Favorito: ".. emoji)
+        print("| Som: ".. sound)
+        print("| Horário: ".. favorite_time)
+        print("| Drop: ".. drop_item)
+        print("| Bioma Favorito: ".. favorite_biome)
+        print("| Hobby: ".. hobby)
+        print("| ")
+        print("| Atributos")
+        print("|    Ataque:       ".. getProgressBar(atack_attribute))
+        print("|    Defesa:       ".. getProgressBar(defense_attribute))
+        print("|    Vitalidade:   ".. getProgressBar(life_attribute))
+        print("|    Velocidade:   ".. getProgressBar(speed_attribute))
+        print("|    Inteligência: ".. getProgressBar(inteligence_attibute))
+        print("| ")
+        print("======================================================")
+         -- Revela o Cartão do Zombie de acordo com a escolha do usuário.
+    elseif revelAttributes == "Zombie" then
+        print("======================================================")
+        print("| ")
+        print("| ".. monster_name2)
+        print("| ".. description2)
+        print("| ")
+        print("| Emoji Favorito: ".. emoji2)
+        print("| Som: ".. sound2)
+        print("| Horário: ".. favorite_time2)
+        print("| Drop: ".. drop_item2)
+        print("| Bioma Favorito: ".. favorite_biome2)
+        print("| Hobby: ".. hobby2)
+        print("| ")
+        print("| Atributos")
+        print("|    Ataque:       ".. getProgressBar(atack_attribute2))
+        print("|    Defesa:       ".. getProgressBar(defense_attribute2))
+        print("|    Vitalidade:   ".. getProgressBar(life_attribute2))
+        print("|    Velocidade:   ".. getProgressBar(speed_attribute2))
+        print("|    Inteligência: ".. getProgressBar(inteligence_attibute2))
+        print("| ")
+        print("======================================================")
+    else
+        print("MONSTRO INVÁLIDO!")
+    end
+
+    
+end
+
+-- Chamada para escolha do monstro
+print("Qual monstro deseja ver as informações:")
+print("1 - Creeper")
+print("2 - Zombie")
+
+local choice = io.read("*n")
+
+if choice == 1 then
+    print(showAttributes("Creeper"))
+elseif choice == 2 then
+    print(showAttributes("Zombie"))
+else
+    print("ESCOLHA INVÁLIDA!")
+end
